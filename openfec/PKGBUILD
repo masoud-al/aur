@@ -1,0 +1,46 @@
+# Maintainer: Masoud Al <mpoloton@gmail.com>
+
+pkgname=openfec
+pkgver=1.4.1
+pkgrel=1
+pkgdesc="OpenFEC is patent-fee application-level forward erasure correction codes."
+arch=('i686' 'x86_64' 'armv6h')
+url="http://www.openfec.org"
+license=('CeCillv2')
+depends=('')
+makedepends=('cmake')
+provides=('openfec')
+
+source=("http://www.openfec.org/files/${pkgname}_${pkgver//./_}.tgz" )
+#source="http://www.openfec.org/files/openfec_1_4_1.tgz"
+
+md5sums=('34a0a4f23e00f4f44c6e0faf032575e4')
+
+
+
+build() {
+  cd "${srcdir}/${pkgname}_${pkgver//./_}"
+  mkdir -p build
+  cd build
+  cmake ../
+  make
+}
+
+check() {
+  cd "${srcdir}/${pkgname}_${pkgver//./_}"/build
+  make test
+}
+
+package() {
+  cd "${srcdir}/${pkgname}_${pkgver//./_}"/build
+#  make DESTDIR="$pkgdir/" install
+  mkdir -p ${pkgdir}/usr/bin
+  mkdir -p ${pkgdir}/usr/lib
+  install -Dm644 "${srcdir}/${pkgname}_${pkgver//./_}"/bin/Release/eperftool \
+    ${pkgdir}/usr/bin/
+    
+  install -Dm644 "${srcdir}/${pkgname}_${pkgver//./_}"/bin/Release/libopenfec.so \
+    ${pkgdir}/usr/lib/
+  	
+}
+
