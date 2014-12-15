@@ -1,0 +1,32 @@
+# Maintainer: Masoud <mpoloton@gmail.com>
+
+pkgname=python2-shogun
+pkgver=3.2.0
+pkgrel=1
+pkgdesc="A large scale machine learning toolbox."
+arch=('i686' 'x86_64')
+url="http://www.shogun-toolbox.org/"
+license=('GPL')
+groups=()
+depends=('python2' 'python2-numpy')
+makedepends=('cmake' 'swig' )
+optdepends=()
+options=(!emptydirs)
+install=
+changelog=
+source=("http://shogun-toolbox.org/archives/shogun/releases/3.2/sources/shogun-$pkgver.tar.bz2")
+noextract=()
+sha256sums=('bc416b615ed90aef80c58a30546c5e2da779347bebb8742ecf11657073fc8f72')
+
+build() {
+  cd "shogun-$pkgver"
+
+  
+}
+
+package() {
+  cd "shogun-$pkgver"
+
+  make DESTDIR="$pkgdir/" install
+}
+
