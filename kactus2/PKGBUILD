@@ -4,20 +4,23 @@ pkgver=2.6.0
 pkgrel=1
 arch=('i686' 'x86_64')
 pkgdesc='Graphical IP-XACT toolset for embedded products design'
-url='http://funbase.cs.tut.fi/index.php/Kactus2'
+url='http://funbase.cs.tut.fi'
 license=('GPL')
 depends=('qt5-base>=5.1.0' 'qt5-tools>=5.1.0')
-#install=kactus2.install
-source=(http://downloads.sourceforge.net/project/$pkgname/$pkgname-$pkgver.tar.gz)
-sha256sums=('648386bf54f852c798f69ff1a21498fa295ff2edc4ac9f80c2335b3212ef60dd')
+install=kactus2.install
+source=(http://downloads.sourceforge.net/project/$pkgname/$pkgname-$pkgver.tar.gz
+	$pkgname-$pkgver-configure.patch
+	$pkgname-$pkgver-qmake.patch)
 
-
+md5sums=('0af5a5b7dfdfe26ab27f8e43cf867021'
+         '3b4cf152065fb628da281c2477492e15'
+         '59ed1981bb9bd760018eaa162a73985a')
 
 build() {
-#	for f in *.patch; do patch -p0 -i $f; done
- 
+	for f in *.patch; do patch -p0 -i $f; done
+
 	cd $pkgname-$pkgver
-	qmake-qt5 Kactus2_Solution.pro
+	./configure
 	make
 }
 
