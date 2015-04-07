@@ -27,7 +27,7 @@ package() {
 
     # Install ptpd2
     cd "${srcdir}/ptpd-${pkgver}"
-    make DESTDIR="${pkgdir}/" install
+    make sbindir=usr/bin DESTDIR="${pkgdir}/" install
 
     # Config File
     install -D src/ptpd2.conf.default-full ${pkgdir}/etc/ptpd2.conf
