@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 url="http://www.pothosware.com/"
 license=('')
 makedepends=('cmake')
-depends=('python' 'python-numpy' 'qt5-base' 'qwt' 'portaudio' 'soapysdr-git')
+depends=('python' 'python-numpy' 'qt5-base' 'qwt' 'portaudio' 'soapysdr-git' 'poco')
 
 source=("git+https://github.com/pothosware/pothos.git")
 md5sums=('SKIP')
