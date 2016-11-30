@@ -1,0 +1,3 @@
+[submodule "python-gimmik"]
+	path = python-gimmik
+	url = ssh://aur@aur.archlinux.org/python-gimmik.git
