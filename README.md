@@ -8,4 +8,4 @@ AUR PKGBUILD script for the following packages
 * python-pyfr
 * python-gimmik
 * python-pydicom
-
+* soapysdr-git
