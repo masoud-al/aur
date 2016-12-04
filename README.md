@@ -9,3 +9,4 @@ AUR PKGBUILD script for the following packages
 * python-gimmik
 * python-pydicom
 * soapysdr-git
+* soapyrtlsdr-git
